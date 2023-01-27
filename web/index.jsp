@@ -13,8 +13,9 @@
     </head>
     <body>
         <h1>Добро пожаловать в нашу библиотеку!</h1>
+        <p>${info}</p>
         <p><a href="newBook">Добавить книгу</a></p>   
         <p><a href="newAuthor">Добавить автора</a></p>   
-        <p><a href="listBooks">Список книг</a></p>   
+        <p><a href="listBooks">Список книг</a></p> 
     </body>
 </html>

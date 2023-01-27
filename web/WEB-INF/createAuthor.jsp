@@ -13,10 +13,10 @@
     </head>
     <body>
         <h1>Новый автор</h1>
+        <form action="createAuthor" method="POST">
+            Имя: <input type="text" name="firstname" value=""><br>    
+            Фамилия: <input type="text" name="lastname" value=""><br>    
+            <input type="submit" value="Добавить">
+        </form>
     </body>
-    <form action="createAuthor" method="POST">
-        Имя: <input type="text" name="firstname" value=""><br>    
-        Фамилия: <input type="text" name="lastname" value=""><br>    
-        <input type="submit" value="Добавить">
-    </form>
 </html>
