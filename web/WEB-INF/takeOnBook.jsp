@@ -18,7 +18,7 @@
             <p>Список читателей</p>
             <p>
                 <select name="readerId">
-                    <c:forEach var="reader" items="$(listReaders">
+                    <c:forEach var="reader" items="${listReaders}">
                         <option value="${reader.id}">${reader.firstname} ${reader.lastname}</option>
                     </c:forEach>
                 </select>
@@ -26,13 +26,13 @@
             <p>Список книг</p>
             <p>
                 <select name="bookId">
-                    <c:forEach var="book" items="$(listBooks">
+                    <c:forEach var="book" items="${listBooks}">
                         <option value="${book.id}">
                             ${book.title} 
                             <c:forEach var="author" items="${book.authors}">
                                 ${author.firstname} ${author.lastname}
                             </c:forEach>
-                    </option>
+                        </option>
                     </c:forEach>
                 </select>
             </p>

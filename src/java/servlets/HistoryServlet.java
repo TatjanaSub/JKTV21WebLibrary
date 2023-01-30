@@ -61,7 +61,7 @@ public class HistoryServlet extends HttpServlet {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
                 break;
             case "/listTakedBooks":
-                
+                request.getRequestDispatcher("/WEB-INF/listTakedBooks.jsp").forward(request, response);
                 break;
         }
     }
