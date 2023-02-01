@@ -9,18 +9,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Список выданных книг</title>
+        <title>Возврат книги</title>
     </head>
     <body>
-        <h1>Выданные книги:</h1>
+        <h1>Выберите возвращаемую книгу:</h1>
         <ol>
             <c:forEach var="history" items="${listTakedBooks}">
                 <li>
-                    ${history.book.title}<br>
-                    Авторы книги:<br>
-                    <c:forEach var="author" items="${history.book.authors}">
-                        ${author.firstname} ${author.lastname}
-                    </c:forEach>
+                    <a href="returnBook?historyId=${history.id}">
+                        ${history.book.title}<br>
+                        Авторы книги:<br>
+                        <c:forEach var="author" items="${history.book.authors}">
+                            ${author.firstname} ${author.lastname}
+                        </c:forEach>
+                    </a>
                 </li>
             </c:forEach>
         </ol>

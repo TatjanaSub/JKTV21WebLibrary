@@ -29,7 +29,9 @@ import session.ReaderFacade;
 @WebServlet(name = "HistoryServlet", urlPatterns = {
     "/takeOnBook",
     "/createHistory",
-    "/listTakedBooks"
+    "/listTakedBooks",
+    "/formReturnBooks",
+    "/returnBook"
 })
 public class HistoryServlet extends HttpServlet {
     @EJB private BookFacade bookFacade;
@@ -61,7 +63,19 @@ public class HistoryServlet extends HttpServlet {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
                 break;
             case "/listTakedBooks":
+                request.setAttribute("listTakedBooks", historyFacade.getListTakeBooks());
                 request.getRequestDispatcher("/WEB-INF/listTakedBooks.jsp").forward(request, response);
+                break;
+            case "/formReturnBooks":
+                request.setAttribute("listTakedBooks", historyFacade.getListTakeBooks());
+                request.getRequestDispatcher("/WEB-INF/returnBook.jsp").forward(request, response);
+                break;
+            case "/returnBook":
+                String historyId = request.getParameter("historyId");
+                history = historyFacade.find(Long.parseLong(historyId));
+                history.setReturnBook(new GregorianCalendar().getTime());
+                historyFacade.edit(history);
+                request.getRequestDispatcher("/formReturnBooks").forward(request, response);
                 break;
         }
     }
