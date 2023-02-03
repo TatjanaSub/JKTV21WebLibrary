@@ -42,7 +42,7 @@ public class BookServlet extends HttpServlet {
         switch (path) {
             case "/newBook":
                 request.setAttribute("listAuthors",authorFacade.findAll());
-                request.getRequestDispatcher("/WEB-INF/createBook.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/book/createBook.jsp").forward(request, response);
                 break;
             case "/createBook":
                 String title = request.getParameter("title");
@@ -61,11 +61,11 @@ public class BookServlet extends HttpServlet {
                     authorFacade.edit(a);
                 }
                 request.setAttribute("listBooks", bookFacade.findAll());
-                request.getRequestDispatcher("/WEB-INF/listBooks.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/book/listBooks.jsp").forward(request, response);
                 break;
             case "/listBooks":
                 request.setAttribute("listBooks", bookFacade.findAll());
-                request.getRequestDispatcher("/WEB-INF/listBooks.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/book/listBooks.jsp").forward(request, response);
                 break;
             
         }

@@ -42,7 +42,7 @@ public class AuthorServlet extends HttpServlet {
         switch (path) {
             
             case "/newAuthor":
-                request.getRequestDispatcher("/WEB-INF/createAuthor.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/author/createAuthor.jsp").forward(request, response);
                 break;
             case "/createAuthor":
                 String firstname = request.getParameter("firstname");
@@ -65,7 +65,7 @@ public class AuthorServlet extends HttpServlet {
                 break;
             case "/listAuthors":
                 request.setAttribute("listAuthors", authorFacade.findAll());
-                request.getRequestDispatcher("/WEB-INF/listAuthors.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/author/listAuthors.jsp").forward(request, response);
                 break;
             
         }
