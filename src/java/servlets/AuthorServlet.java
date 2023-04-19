@@ -7,9 +7,6 @@ package servlets;
 
 import entity.Author;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import session.AuthorFacade;
-import session.BookFacade;
 import tools.BirthdayConverter;
 
 /**
@@ -32,7 +28,6 @@ import tools.BirthdayConverter;
 public class AuthorServlet extends HttpServlet {
     
     @EJB private AuthorFacade authorFacade;
-    @EJB private BookFacade bookFacade;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

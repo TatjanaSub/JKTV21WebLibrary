@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -90,6 +91,47 @@ public class History implements Serializable{
                 + ", takeOnBook=" + takeOnBook 
                 + ", returnBook=" + returnBook 
                 + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 53 * hash + Objects.hashCode(this.reader);
+        hash = 53 * hash + Objects.hashCode(this.book);
+        hash = 53 * hash + Objects.hashCode(this.takeOnBook);
+        hash = 53 * hash + Objects.hashCode(this.returnBook);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final History other = (History) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.reader, other.reader)) {
+            return false;
+        }
+        if (!Objects.equals(this.book, other.book)) {
+            return false;
+        }
+        if (!Objects.equals(this.takeOnBook, other.takeOnBook)) {
+            return false;
+        }
+        if (!Objects.equals(this.returnBook, other.returnBook)) {
+            return false;
+        }
+        return true;
     }
 
    
